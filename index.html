@@ -97,7 +97,7 @@
             background: rgba(255, 255, 255, 0.25);
         }
         .toggle-btn.controls-visible {
-            left: 320px;
+            left: 530px;
         }
         .color-input-group {
             display: flex;
@@ -132,6 +132,7 @@
             <button onclick="addSphere()">구체</button>
             <button onclick="addTorus()">도넛</button>
             <button onclick="addCylinder()">원기둥</button>
+            <button id="btn-axeshelper" onclick="toggleAxesHelper()">축헬퍼 On</button>
         </div>
 
         <div class="control-group">
@@ -213,11 +214,13 @@
             // 축 헬퍼 추가 (X: 빨강, Y: 초록, Z: 파랑)
             axesHelper = new THREE.AxesHelper(3);
             axesHelper.visible = false;
+            axesHelper_bool = true;
             scene.add(axesHelper);
 
             // 그리드 헬퍼 추가 (XZ 평면)
             gridHelper = new THREE.GridHelper(10, 10, 0x888888, 0x444444);
             gridHelper.visible = false;
+            gridHelper_bool = true;
             scene.add(gridHelper);
 
             addCube();
@@ -418,6 +421,18 @@
             }
         }
 
+        function toggleAxesHelper() {
+            axesHelper_bool = !axesHelper_bool;  // 축헬퍼 토글
+            gridHelper_bool = !gridHelper_bool;  // 그리드헬퍼 토글
+
+            const btn = document.getElementById('btn-axeshelper');
+                if (axesHelper_bool) {
+                    btn.innerText = '축헬퍼 On';
+                } else {
+                    btn.innerText = '축헬퍼 Off';
+                }
+        };
+
         function showHelpers() {
             axesHelper.visible = true;
             gridHelper.visible = true;
@@ -434,14 +449,20 @@
             }, 2000);
         }
 
+        function toggleRotation() {
+            isRotating = !isRotating;
+        }
+
         function onMouseMove(event) {
             mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
             mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
             if (isRightMouseDown) {
-                // 헬퍼 표시
-                showHelpers();
-                
+                if (axesHelper_bool && gridHelper_bool) {
+                    // 헬퍼 표시
+                    showHelpers();
+                }
+
                 // 우클릭 드래그 - 카메라 회전
                 const deltaX = event.clientX - previousMousePosition.x;
                 const deltaY = event.clientY - previousMousePosition.y;
