@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D ¿ÀºêÁ§Æ®</title>
+    <title>3D ì˜¤ë¸Œì íŠ¸</title>
     <style>
         body {
             margin: 0;
@@ -124,44 +124,44 @@
     <div id="container"></div>
     <button class="toggle-btn controls-visible" onclick="toggleControls()">?</button>
     <div class="controls" id="controlPanel">
-        <h3>? 3D ÄÁÆ®·Ñ</h3>
+        <h3>? 3D ì»¨íŠ¸ë¡¤</h3>
         
         <div class="control-group">
-            <label>¿ÀºêÁ§Æ® Ãß°¡:</label>
-            <button onclick="addCube()">Å¥ºê</button>
-            <button onclick="addSphere()">±¸Ã¼</button>
-            <button onclick="addTorus()">µµ³Ó</button>
-            <button onclick="addCylinder()">¿ø±âµÕ</button>
+            <label>ì˜¤ë¸Œì íŠ¸ ì¶”ê°€:</label>
+            <button onclick="addCube()">íë¸Œ</button>
+            <button onclick="addSphere()">êµ¬ì²´</button>
+            <button onclick="addTorus()">ë„ë„›</button>
+            <button onclick="addCylinder()">ì›ê¸°ë‘¥</button>
         </div>
 
         <div class="control-group">
-            <label>¼±ÅÃÇÑ ¿ÀºêÁ§Æ® »ö»ó:</label>
+            <label>ì„ íƒí•œ ì˜¤ë¸Œì íŠ¸ ìƒ‰ìƒ:</label>
             <div class="color-input-group">
                 <input type="color" id="objectColor" value="#ff00ff">
-                <button onclick="changeSelectedColor()">»ö»ó º¯°æ</button>
+                <button onclick="changeSelectedColor()">ìƒ‰ìƒ ë³€ê²½</button>
             </div>
         </div>
 
         <div class="control-group">
-            <label>¼±ÅÃÇÑ ¿ÀºêÁ§Æ® ½ºÅ¸ÀÏ:</label>
-            <button onclick="toggleGlassmorphism()">±Û·¡½º¸ðÇÇÁò ÀüÈ¯</button>
+            <label>ì„ íƒí•œ ì˜¤ë¸Œì íŠ¸ ìŠ¤íƒ€ì¼:</label>
+            <button onclick="toggleGlassmorphism()">ê¸€ëž˜ìŠ¤ëª¨í”¼ì¦˜ ì „í™˜</button>
         </div>
 
         <div class="control-group">
-            <label>¹è°æ ¼³Á¤:</label>
+            <label>ë°°ê²½ ì„¤ì •:</label>
             <div class="color-input-group">
                 <select id="bgMode" onchange="changeBackgroundMode()">
-                    <option value="gradient">ÀÚµ¿ ±×¶óµ¥ÀÌ¼Ç</option>
-                    <option value="solid">´Ü»ö ¹è°æ</option>
+                    <option value="gradient">ìžë™ ê·¸ë¼ë°ì´ì…˜</option>
+                    <option value="solid">ë‹¨ìƒ‰ ë°°ê²½</option>
                 </select>
                 <input type="color" id="bgColor" value="#1a1a2e">
             </div>
-            <button onclick="changeBackground()">¹è°æ º¯°æ</button>
+            <button onclick="changeBackground()">ë°°ê²½ ë³€ê²½</button>
         </div>
         
         <div class="control-group">
-            <button onclick="clearObjects()">ÀüºÎ Áö¿ì±â</button>
-            <button onclick="toggleRotation()">È¸Àü On/Off</button>
+            <button onclick="clearObjects()">ì „ë¶€ ì§€ìš°ê¸°</button>
+            <button onclick="toggleRotation()">íšŒì „ On/Off</button>
         </div>
     </div>
 
@@ -210,12 +210,12 @@
             pointLight2.position.set(-5, -5, 5);
             scene.add(pointLight2);
 
-            // Ãà ÇïÆÛ Ãß°¡ (X: »¡°­, Y: ÃÊ·Ï, Z: ÆÄ¶û)
+            // ì¶• í—¬í¼ ì¶”ê°€ (X: ë¹¨ê°•, Y: ì´ˆë¡, Z: íŒŒëž‘)
             axesHelper = new THREE.AxesHelper(3);
             axesHelper.visible = false;
             scene.add(axesHelper);
 
-            // ±×¸®µå ÇïÆÛ Ãß°¡ (XZ Æò¸é)
+            // ê·¸ë¦¬ë“œ í—¬í¼ ì¶”ê°€ (XZ í‰ë©´)
             gridHelper = new THREE.GridHelper(10, 10, 0x888888, 0x444444);
             gridHelper.visible = false;
             scene.add(gridHelper);
@@ -303,7 +303,7 @@
 
         function changeSelectedColor() {
             if (!selectedObject) {
-                alert('¸ÕÀú ¿ÀºêÁ§Æ®¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä!');
+                alert('ë¨¼ì € ì˜¤ë¸Œì íŠ¸ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”!');
                 return;
             }
             const color = document.getElementById('objectColor').value;
@@ -312,7 +312,7 @@
 
         function toggleGlassmorphism() {
             if (!selectedObject) {
-                alert('¸ÕÀú ¿ÀºêÁ§Æ®¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä!');
+                alert('ë¨¼ì € ì˜¤ë¸Œì íŠ¸ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”!');
                 return;
             }
             
@@ -422,12 +422,12 @@
             axesHelper.visible = true;
             gridHelper.visible = true;
             
-            // ±âÁ¸ Å¸ÀÌ¸Ó Ãë¼Ò
+            // ê¸°ì¡´ íƒ€ì´ë¨¸ ì·¨ì†Œ
             if (helperTimeout) {
                 clearTimeout(helperTimeout);
             }
             
-            // 2ÃÊ ÈÄ ¼û±â±â
+            // 2ì´ˆ í›„ ìˆ¨ê¸°ê¸°
             helperTimeout = setTimeout(() => {
                 axesHelper.visible = false;
                 gridHelper.visible = false;
@@ -439,27 +439,27 @@
             mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
             if (isRightMouseDown) {
-                // ÇïÆÛ Ç¥½Ã
+                // í—¬í¼ í‘œì‹œ
                 showHelpers();
                 
-                // ¿ìÅ¬¸¯ µå·¡±× - Ä«¸Þ¶ó È¸Àü
+                // ìš°í´ë¦­ ë“œëž˜ê·¸ - ì¹´ë©”ë¼ íšŒì „
                 const deltaX = event.clientX - previousMousePosition.x;
                 const deltaY = event.clientY - previousMousePosition.y;
 
                 const rotationSpeed = 0.005;
                 
-                // Ä«¸Þ¶ó¸¦ Áß½ÉÁ¡ ÁÖÀ§·Î È¸Àü
+                // ì¹´ë©”ë¼ë¥¼ ì¤‘ì‹¬ì  ì£¼ìœ„ë¡œ íšŒì „
                 const offset = new THREE.Vector3().copy(camera.position).sub(cameraTarget);
                 const radius = offset.length();
                 
-                // ¼öÆò È¸Àü (YÃà ±âÁØ)
+                // ìˆ˜í‰ íšŒì „ (Yì¶• ê¸°ì¤€)
                 const horizontalAngle = Math.atan2(offset.x, offset.z);
                 const verticalAngle = Math.asin(offset.y / radius);
                 
                 const newHorizontal = horizontalAngle - deltaX * rotationSpeed;
                 const newVertical = Math.max(-Math.PI / 2 + 0.01, Math.min(Math.PI / 2 - 0.01, verticalAngle - deltaY * rotationSpeed));
                 
-                // »õ À§Ä¡ °è»ê
+                // ìƒˆ ìœ„ì¹˜ ê³„ì‚°
                 camera.position.x = cameraTarget.x + radius * Math.sin(newHorizontal) * Math.cos(newVertical);
                 camera.position.y = cameraTarget.y + radius * Math.sin(newVertical);
                 camera.position.z = cameraTarget.z + radius * Math.cos(newHorizontal) * Math.cos(newVertical);
@@ -468,7 +468,7 @@
 
                 previousMousePosition = { x: event.clientX, y: event.clientY };
             } else if (isDragging && selectedObject) {
-                // ÁÂÅ¬¸¯ µå·¡±× - ¿ÀºêÁ§Æ® ÀÌµ¿
+                // ì¢Œí´ë¦­ ë“œëž˜ê·¸ - ì˜¤ë¸Œì íŠ¸ ì´ë™
                 raycaster.setFromCamera(mouse, camera);
                 
                 const distance = camera.position.z - selectedObject.position.z;
@@ -488,14 +488,14 @@
 
         function onMouseDown(event) {
             if (event.button === 2) {
-                // ¿ìÅ¬¸¯
+                // ìš°í´ë¦­
                 isRightMouseDown = true;
                 previousMousePosition = { x: event.clientX, y: event.clientY };
                 document.body.style.cursor = 'grab';
                 return;
             }
 
-            // ÁÂÅ¬¸¯
+            // ì¢Œí´ë¦­
             mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
             mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
@@ -512,13 +512,13 @@
 
         function onMouseUp(event) {
             if (event.button === 2) {
-                // ¿ìÅ¬¸¯ ÇØÁ¦
+                // ìš°í´ë¦­ í•´ì œ
                 isRightMouseDown = false;
                 document.body.style.cursor = 'default';
                 return;
             }
 
-            // ÁÂÅ¬¸¯ ÇØÁ¦
+            // ì¢Œí´ë¦­ í•´ì œ
             if (selectedObject) {
                 selectedObject.material.emissive = new THREE.Color(0x000000);
             }
@@ -529,20 +529,20 @@
         function onMouseWheel(event) {
             event.preventDefault();
             
-            // ÇïÆÛ Ç¥½Ã
+            // í—¬í¼ í‘œì‹œ
             showHelpers();
             
-            // ÈÙ·Î ÁÜ ÀÎ/¾Æ¿ô
+            // íœ ë¡œ ì¤Œ ì¸/ì•„ì›ƒ
             const zoomSpeed = 0.3;
             const offset = new THREE.Vector3().copy(camera.position).sub(cameraTarget);
             const distance = offset.length();
             
             if (event.deltaY > 0) {
-                // ÁÜ ¾Æ¿ô
+                // ì¤Œ ì•„ì›ƒ
                 const newDistance = Math.min(distance + zoomSpeed, 15);
                 offset.normalize().multiplyScalar(newDistance);
             } else {
-                // ÁÜ ÀÎ
+                // ì¤Œ ì¸
                 const newDistance = Math.max(distance - zoomSpeed, 2);
                 offset.normalize().multiplyScalar(newDistance);
             }
